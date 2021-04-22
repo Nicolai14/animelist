@@ -1,8 +1,10 @@
+
 <x-guest-layout>
+
     <x-auth-card>
         <x-slot name="logo">
             <a href="/">
-                <x-application-logo class="w-20 h-20 fill-current text-gray-500" />
+                <x-application-logo />
             </a>
         </x-slot>
 
@@ -17,14 +19,14 @@
 
             <!-- Email Address -->
             <div>
-                <x-label for="email" :value="__('Email')" />
+                <x-label for="email" :value="__('Email')" class="block text-blue-300 py-2 font-bold mb-2"/>
 
                 <x-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus />
             </div>
 
             <!-- Password -->
             <div class="mt-4">
-                <x-label for="password" :value="__('Password')" />
+                <x-label for="password" :value="__('Password')" class="block text-blue-300 py-2 font-bold mb-2"/>
 
                 <x-input id="password" class="block mt-1 w-full"
                                 type="password"
@@ -40,17 +42,19 @@
                 </label>
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                @if (Route::has('password.request'))
-                    <a class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('password.request') }}">
-                        {{ __('Forgot your password?') }}
-                    </a>
-                @endif
+            <div class="flex items-center justify-end">
 
-                <x-button class="ml-3">
-                    {{ __('Log in') }}
-                </x-button>
+
+                        <button
+                            class="ml-3 bg-gradient-to-r from-purple-800 to-green-500 hover:from-pink-500 hover:to-green-500 text-white font-bold py-2 px-8 rounded focus:ring transform transition hover:scale-105 duration-300 ease-in-out"
+                          {{ __('Log in') }}
+                        >
+                           Login
+                        </button>
+
+
             </div>
         </form>
     </x-auth-card>
 </x-guest-layout>
+

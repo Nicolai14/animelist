@@ -16,7 +16,7 @@
         <!-- Scripts -->
         <script src="{{ asset('js/app.js') }}" defer></script>
     </head>
-    <body>
+    <body class="leading-normal tracking-normal text-indigo-400 m-6 bg-cover bg-fixed" style="background-image: url({{URL::asset('/assets/img/header.png')}});">
         <div class="font-sans text-gray-900 antialiased">
             {{ $slot }}
         </div>
