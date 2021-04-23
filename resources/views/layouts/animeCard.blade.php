@@ -34,7 +34,7 @@
           </tr>
           <tr>
               <td class="border border-gray-700"><b>Genre</b></td>
-              <td class="border border-gray-700">Anime, Hentai, Romance</td>
+              <td class="border border-gray-700">Anime, Rotze, Romance</td>
           </tr>
           <tr>
               <td class="border border-gray-700"><b>Synonym</b></td>
@@ -48,7 +48,7 @@
 
           <tr>
               <td colspan="2" class="bg-gray-700 opacity-70"><b>Beschreibung:</b><br>
-                  Noch ist keine Beschreibung verfügbar. Du bist ein haesslicher messdiener. </td>
+                  Noch ist keine Beschreibung verfügbar. Du bist ein haesslicher Hund. </td>
           </tr>
           </tbody></table>
   </div>

@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/list', 'App\Http\Controllers\ListController@index');
+
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -25,6 +28,8 @@ Route::get('/dashboard', function () {
 Route::get('/register', function () {
     return view('register');
 })->middleware(['auth'])->name('register');
+
+
 
 
 require __DIR__.'/auth.php';
