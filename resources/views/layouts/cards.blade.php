@@ -7,10 +7,53 @@
 </x-slot>
 
 
-    <div class="content-center mt-12 py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="grid  md:grid-cols-3 sm:grid-cols-1 gap-4">
+
+    <div class="content-center  py-12 max-w-7xl mx-auto sm:px-6 lg:px-8">
+
+
+            <form class="searchName">
+
+                <div class="relative text-gray-600 focus-within:text-gray-400">
+      <span class="absolute inset-y-0 left-0 flex items-center pl-2">
+        <button type="submit" class="p-1 focus:outline-none focus:shadow-outline">
+          <svg fill="none"  stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewBox="0 0 24 24" class="w-6 h-6"><path d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg>
+        </button>
+      </span>
+                    <input type="search" name="searchName" class="py-2 text-sm text-white bg-gray-900 rounded-md pl-10 focus:outline-none focus:bg-white focus:text-gray-900" placeholder="Search..." autocomplete="off">
+                </div>
+            </form>
+        <form class="filterGenre" id="filterGenre">
+
+            <div class="relative text-gray-600 focus-within:text-gray-400">
+      <span class="absolute inset-y-0  flex items-end pl-2 ml-56" >
+
+            <select class="form-select block w-full mt-1 py-2 text-sm bg-gray-900 rounded-md pl-10 focus:outline-none focus:text-white" name="filterGenre">
+                <option selected="true" disabled="disabled">Genre</option>
+                <option value="Action">Action</option>
+                <option value="Adventure">Adventure</option>
+                <option value="Comedy">Comedy</option>
+                <option value="Drama">Drama</option>
+                <option value="Fantasy">Fantasy</option>
+                <option value="Mystery">Mystery</option>
+                <option value="Romance">Romance</option>
+                <option value="Family">Family</option>
+                <option value="Horror">Horror</option>
+                <option value="Thriller">Thriller</option>
+                <option value="Sci-Fi">Sci-Fi</option>
+            </select>
+          <button type="submit" class="btn-blue ml-4">Filter</button>
+</span>
+            </div>
+
+        </form>
+
+        <div class="grid  md:grid-cols-3 sm:grid-cols-1 gap-4 mt-12">
+@if ($data[0]==null)
+    Es konnte kein Anime gefunden werden.
+    @endif
 
         @foreach ($data as $anime)
+
 
 <div class="container mx-auto md:mx-auto rounded-lg bg-gray-800 shadow md:shadow-2xl" style="display: flex; width: 100%; flex-direction: column">
     <div class="relative z-30">
@@ -80,6 +123,6 @@
 
 
     </div>
-    </div><div class="text-center">{{$data->links()}}</div>
+    </div>{{$data->links()}}
 
 </x-app-layout>

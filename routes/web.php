@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\anime;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers;
 

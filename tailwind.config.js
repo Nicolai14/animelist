@@ -8,12 +8,15 @@ module.exports = {
     ],
 
     theme: {
+
         extend: {
             fontFamily: {
                 sans: ['Nunito', ...defaultTheme.fontFamily.sans],
             },
         },
+
     },
+
 
     variants: {
         extend: {
@@ -22,7 +25,5 @@ module.exports = {
     },
 
     plugins: [require('@tailwindcss/forms'),
-require('tailwindcss-plugins/pagination')({
-
-})],
+require('tailwindcss-plugins/pagination'),],
 };

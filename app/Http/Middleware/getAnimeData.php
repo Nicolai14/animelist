@@ -19,7 +19,18 @@ class getAnimeData
     }
     public static function getDB()
     {
-        return $animes=anime::paginate(9);
+        if (request()->has('searchName')){
+            $animes=anime::where('Name','like', request('searchName').'%')->paginate(9)->appends('searchName',request('searchName'));
+        }
+        elseif(request()->has('filterGenre'))
+        {
+            $animes=anime::where('Genre', 'like','%'.request('filterGenre').'%')->paginate(9)->appends('filterGenre',request('filterGenre'));
+        }
+        else {
+            $animes = anime::paginate(9);
+        }
+
+        return $animes;
     }
 
 }
