@@ -1,10 +1,10 @@
-<nav x-data="{ open: false }" class="bg-gray-900 border-b border-gray-900 max-w-7xl mx-auto">
-    <!-- Primary Navigation Menu -->
+<nav x-data="{ open: false }" class="0 bg-gray-800 border-b border-gray-900 max-w-7xl mx-auto" style=" opacity: 80%">
+    <!- #682F68 -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 ">
         <div class="flex justify-between h-16">
             <div class="flex">
                 <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center mt-11">
+                <div class="flex-shrink-0 flex items-center">
                     <a href="{{ route('dashboard') }}">
                         <img class="" width="90" height="90" src={{URL::asset('/assets/img/kfc2.png')}} >
                     </a>

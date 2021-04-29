@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Middleware\getAnimeData;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\greaterThanOrEqual;
 
 class ListController extends Controller
 {
    public function index()
    {
-    $testring="fdf";
+    $data= getAnimeData::getDB();
 
-    return view('layouts.cards', compact('testring'));
+    return view('layouts.cards', compact('data'));
 
    }
 }
