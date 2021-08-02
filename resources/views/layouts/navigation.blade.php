@@ -5,37 +5,41 @@
             <div class="flex">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
-                    <a href="{{ route('dashboard') }}">
-                        <img class="" width="90" height="90" src={{URL::asset('/assets/img/kfc2.png')}} >
+                    <a href="/">
+                        <img class="transform transition hover:scale-105 duration-300 ease-in-out" width="90" height="90" src={{URL::asset('/assets/img/kfc2.png')}} >
                     </a>
                 </div>
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex text-blue-900 py-2 font-bold mb-2">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                      <div class="text-blue-300 py-2 font-bold mb-2">  {{ __('Dashboard') }}</div>
+                      <div class="text-blue-300 py-2 font-bold mb-2 transform transition hover:scale-105 duration-300 ease-in-out">  {{ __('Dashboard') }}</div>
                     </x-nav-link>
-                    <x-nav-link :href="action('App\Http\Controllers\ListController@index')" :active="request()->routeIs('list')">
-                        <div class="text-blue-300 py-2 font-bold mb-2">  {{ __('Ainmelist') }}</div>
+                    <x-nav-link :href="route('list')" :active="request()->routeIs('list')">
+                        <div class="text-blue-300 py-2 font-bold mb-2 transform transition hover:scale-105 duration-300 ease-in-out">  {{ __('Ainmelist') }}</div>
                     </x-nav-link>
                 </div>
             </div>
 
             <!-- Settings Dropdown -->
+            @if ( Auth::user())
             <div class="hidden sm:flex sm:items-center sm:ml-6">
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
-                        <button class="flex items-center text-sm font-medium text-blue-500 hover:text-gray-700 hover:border-gray-300 focus:outline-none focus:text-gray-700 focus:border-gray-300 transition duration-150 ease-in-out text-blue-300 py-2 font-bold mb-2">
-                            <div>{{ Auth::user()->name }}</div>
+                        <button class="flex items-center text-sm font-medium text-blue-200 hover:text-gray-100 hover:border-gray-100 focus:outline-none focus:text-gray-100 focus:border-gray-100 transition duration-150 ease-in-out text-blue-100 py-2 font-bold mb-2">
+                            <div>
 
+                                {{ Auth::user()->name }}
+
+                            </div>
                             <div class="ml-1">
+
                                 <svg class="fill-current h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
                                     <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
                                 </svg>
                             </div>
                         </button>
                     </x-slot>
-
                     <x-slot name="content">
                         <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
@@ -50,10 +54,24 @@
                     </x-slot>
                 </x-dropdown>
             </div>
+            @else
+                <div class="hidden sm:flex sm:items-center sm:ml-6">
+
+                    <a href="{{ route('login') }}">
+                    <button class="flex items-center text-sm font-medium text-blue-200 hover:text-gray-100 hover:border-gray-100 focus:outline-none focus:text-gray-100 focus:border-gray-100 transition duration-150 ease-in-out text-blue-100 py-2 font-bold mb-2">
+                                <div class="transform transition hover:scale-105 duration-300 ease-in-out">
+                                   Login
+                                </div>
+
+                            </button>
+                    </a>
+
+                </div>
+        @endif
 
             <!-- Hamburger -->
             <div class="-mr-2 flex items-center sm:hidden">
-                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
+                <button @click="open = ! open" class="inline-flex items-center justify-center p-2 rounded-md text-blue-200 hover:text-gray-100 hover:bg-gray-100 focus:outline-none focus:bg-gray-400 focus:text-gray-500 transition duration-150 ease-in-out">
                     <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
                         <path :class="{'hidden': open, 'inline-flex': ! open }" class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
                         <path :class="{'hidden': ! open, 'inline-flex': open }" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
@@ -80,8 +98,16 @@
                 </div>
 
                 <div class="ml-3">
-                    <div class="font-medium text-base text-gray-800">{{ Auth::user()->name }}</div>
-                    <div class="font-medium text-sm text-gray-500">{{ Auth::user()->email }}</div>
+                    <div class="font-medium text-base text-gray-800">  @if ( Auth::user())
+                            {{ Auth::user()->name }}
+                        @else
+                            Gast
+                        @endif</div>
+                    <div class="font-medium text-sm text-gray-500">  @if ( Auth::user())
+                            {{ Auth::user()->name }}
+                        @else
+                            Gast
+                        @endif</div>
                 </div>
             </div>
 

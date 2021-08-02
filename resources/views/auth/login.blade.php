@@ -1,9 +1,15 @@
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
+        </h2>
+    </x-slot>
+</x-app-layout>
 <x-guest-layout>
 
     <x-auth-card>
-        <x-slot name="logo">
-            <a href="/">
+        <x-slot name="logo" >
+            <a href="/" class="">
                 <x-application-logo />
             </a>
         </x-slot>

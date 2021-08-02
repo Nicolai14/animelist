@@ -13,9 +13,6 @@ class getAnimeData
 {
     public function __construct()
     {
-
-
-
     }
     public static function getDB()
     {
@@ -30,6 +27,11 @@ class getAnimeData
             $animes = anime::paginate(9);
         }
 
+        return $animes;
+    }
+    public static function getGenres()
+    {
+        $animes =anime::count();
         return $animes;
     }
 

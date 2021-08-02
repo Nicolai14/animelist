@@ -15,16 +15,17 @@ use App\Http\Controllers;
 |
 */
 
-Route::get('/', function () {
-    return view('index');
-});
-Route::get('/list', 'App\Http\Controllers\ListController@index');
+Route::get('/', [
+    'uses' => 'App\Http\Controllers\ListController@dashboard'
+])->name('dashboard');
 
+Route::get('/dashboard', [
+    'uses' => 'App\Http\Controllers\ListController@dashboard'
+    ])->name('dashboard');
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth'])->name('dashboard');
-
+Route::get('/list', [
+    'uses' => 'App\Http\Controllers\ListController@index'
+])->name('list');
 
 Route::get('/register', function () {
     return view('register');
