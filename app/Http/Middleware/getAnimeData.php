@@ -21,7 +21,14 @@ class getAnimeData
         }
         elseif(request()->has('filterGenre'))
         {
-            $animes=anime::where('Genre', 'like','%'.request('filterGenre').'%')->paginate(9)->appends('filterGenre',request('filterGenre'));
+            if (request('filterGenre')=="ID")
+            {
+                $animes = anime::orderBy('ID', 'DESC')->paginate(9);
+            }
+            else {
+                $animes = anime::where('Genre', 'like',
+                    '%' . request('filterGenre') . '%')->paginate(9)->appends('filterGenre', request('filterGenre'));
+            }
         }
         else {
             $animes = anime::paginate(9);
